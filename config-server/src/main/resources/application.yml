@@ -1,0 +1,13 @@
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/p-ormeno/micro_examen_config
+  application:
+    name: config
+             
+#HTTP Server
+server:
+  port: 4444
