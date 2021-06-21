@@ -1,7 +1,6 @@
 package com.escalab.practice.vet.owners.domain;
 
 import java.util.Date;
-import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -40,8 +39,5 @@ public class PetOwnerDTO {
 
 	/** The email. */
 	private String email;
-	
-	/** The pets. */
-	private List<PetRecordDTO> pets;
 
 }

@@ -1,8 +1,10 @@
 package com.escalab.practice.vet.owners.web;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -83,10 +85,15 @@ public class PetOwnerController {
 	 * @return the pets
 	 */
 	@GetMapping(path = Urls.PET_BY_OWNER)
-	public PetRecordDTO getPets(@PathVariable Long ownerRut) {
+	public List<PetRecordDTO> getPets(@PathVariable Long ownerRut) {
 		URI vetUri = eurekaClient.getUri("vet.user");
-		PetRecordDTO recordDto = restTemplate.getForObject(vetUri.resolve(Urls.PET_BY_OWNER+ ownerRut), PetRecordDTO.class);
+		List<PetRecordDTO> recordDto = (List<PetRecordDTO>) restTemplate.getForObject(vetUri.resolve(Urls.PET_BY_OWNER+ ownerRut), PetRecordDTO.class);
 
 		return recordDto;
+	}
+	
+	@Bean
+	public RestTemplate restTemplate() {
+	    return new RestTemplate();
 	}
 }

@@ -1,6 +1,5 @@
 package com.escalab.practice.vet.owners.utils;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import com.escalab.practice.vet.owners.domain.PetOwnerDTO;
@@ -35,9 +34,6 @@ public class Utils {
             dto.setAddress(ownerEntity.getAddress());
             dto.setEmail(ownerEntity.getEmail());
             dto.setRut(ownerEntity.getRut());
-           
-            
-            dto.setPets(new ArrayList<>(ownerEntity.getPets()));
             
         }
         return dto;

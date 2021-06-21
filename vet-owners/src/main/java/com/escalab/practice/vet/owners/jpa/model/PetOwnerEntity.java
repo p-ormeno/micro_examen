@@ -1,17 +1,13 @@
 package com.escalab.practice.vet.owners.jpa.model;
 
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.escalab.practice.vet.owners.domain.PetRecordDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -63,9 +59,5 @@ public class PetOwnerEntity {
 	/** The email. */
 	@Column(name="OWNER_EMAIL")
 	private String email;
-	
-	/** The pet. */
-	@OneToMany(mappedBy="owner")
-	private Set<PetRecordDTO> pets;
 	
 }
