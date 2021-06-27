@@ -4,6 +4,11 @@ spring:
       server:
         git:
           uri: https://github.com/p-ormeno/micro_examen_config
+          repos:
+            developper:
+              pattern:
+                - '*/dev'
+              uri: https://github.com/p-ormeno/configDev
   application:
     name: config
              
