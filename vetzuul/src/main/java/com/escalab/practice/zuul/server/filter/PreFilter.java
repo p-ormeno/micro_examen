@@ -1,4 +1,4 @@
-package com.escalab.practice.zuul.server;
+package com.escalab.practice.zuul.server.filter;
 
 import javax.servlet.http.HttpServletRequest;
 
