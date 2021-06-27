@@ -1,5 +1,7 @@
 package com.escalab.practice.zuul.server.filter;
 
+import java.time.Instant;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -30,10 +32,19 @@ public class PreFilter extends ZuulFilter {
 
 	@Override
 	public Object run() throws ZuulException {
-		final HttpServletRequest request = RequestContext.getCurrentContext().getRequest();
+		RequestContext ctx = RequestContext.getCurrentContext();
+		final HttpServletRequest request = ctx.getRequest();
 		log.info("Petición {} a {}", request.getMethod(), request.getRequestURL().toString());
-		
+
+		logResponseTime(ctx, request);
+
 		return null;
+	}
+
+	private void logResponseTime(RequestContext ctx, final HttpServletRequest request) {
+		long startTime = Instant.now().toEpochMilli();
+		log.info("Request URL::" + request.getRequestURL().toString() + ":: Inicio =" + Instant.now());
+		ctx.put("startTime", startTime);
 	}
 
 	@Override

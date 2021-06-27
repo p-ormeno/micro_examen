@@ -1,14 +1,12 @@
 package com.escalab.practice.zuul.server.filter;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.google.common.io.CharStreams;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
@@ -37,13 +35,10 @@ public class PostFilter extends ZuulFilter {
 	public Object run() throws ZuulException {
 		RequestContext ctx = RequestContext.getCurrentContext();
 
-		try (final InputStream responseDataStream = ctx.getResponseDataStream()) {
-			final String responseData = CharStreams.toString(new InputStreamReader(responseDataStream, StandardCharsets.UTF_8));
-			ctx.setResponseBody(responseData);
-			log.info("Respuesta:  {} ", responseData);
-		} catch (IOException e) {
-			log.warn("Error leyendo la respuesta", e);
-		}
+		HttpServletRequest request = ctx.getRequest();
+		long startTime = (Long) ctx.get("startTime");
+
+		log.info("Request URL: {} :: Tiempo Utilizado: {} ", request.getRequestURL().toString(), (Instant.now().toEpochMilli() - startTime));
 		return null;
 	}
 
