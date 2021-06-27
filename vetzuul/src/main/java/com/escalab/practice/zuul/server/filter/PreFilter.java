@@ -43,7 +43,7 @@ public class PreFilter extends ZuulFilter {
 
 	private void logResponseTime(RequestContext ctx, final HttpServletRequest request) {
 		long startTime = Instant.now().toEpochMilli();
-		log.info("Request URL::" + request.getRequestURL().toString() + ":: Inicio =" + Instant.now());
+		log.info("Request URL: {} :: Inicio: {}", request.getRequestURL().toString(), Instant.now());
 		ctx.put("startTime", startTime);
 	}
 
