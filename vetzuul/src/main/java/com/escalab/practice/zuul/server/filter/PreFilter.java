@@ -20,6 +20,7 @@ public class PreFilter extends ZuulFilter {
     /** The Constant FILTERORDER. */
     private static final Integer FILTERORDER = 1;
     
+    /** The log. */
     private static Logger log = LoggerFactory.getLogger(PreFilter.class);
 
 	@Override
