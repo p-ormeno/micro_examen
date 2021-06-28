@@ -1,10 +1,10 @@
-package com.escalab.practice.eureka.Eureka.Server;
+package com.escalab.practice.zuul.server;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EurekaServerApplicationTests {
+class ZuulServerApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -6,6 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 
+import com.escalab.practice.zuul.server.filter.PostFilter;
 import com.escalab.practice.zuul.server.filter.PreFilter;
 
 @SpringBootApplication
@@ -20,6 +21,11 @@ public class ZuulServerApplication {
 	@Bean
 	public PreFilter preFilter() {
 		return new PreFilter();
+	}
+	
+	@Bean
+	public PostFilter postFilter() {
+		return new PostFilter();
 	}
 
 }
