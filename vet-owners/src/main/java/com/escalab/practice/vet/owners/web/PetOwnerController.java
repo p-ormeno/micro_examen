@@ -9,7 +9,6 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +29,6 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 /**
  * The Class PetOwnerController.
  */
-@CrossOrigin
 @RestController
 @RequestMapping(value = Urls.PET_OWNER)
 public class PetOwnerController {
