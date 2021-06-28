@@ -35,7 +35,7 @@ public class Urls {
     public static final String GET_WEIGHT = "/get-weight/{petId}";
     
     /** The Constant PET_BY_NAME. */
-    public static final String PET_BY_NAME = "/find-pet/{name}";
+    public static final String PET_BY_NAME = "/find-pet-name/{name}";
     
     /** The Constant NEW_OWNER. */
     public static final String NEW_OWNER = "/new-owner";
